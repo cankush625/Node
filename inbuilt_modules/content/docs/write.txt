@@ -1,0 +1,3 @@
+Demo write text: Some demo text.
+Demo write text: Some demo text.
+Data from write file promiseData from write file promiseData from write file promiseData from write file promise

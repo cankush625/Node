@@ -63,4 +63,4 @@ How to avoid dns.lookup()?
 Listening for signals does not "ref" the event loop, which is consistent with signal usage as a "probably won't happen" IPC mechanism.
 
 ## References
-    - [Node's Event Loop From the Inside Out by Sam Roberts](https://www.youtube.com/watch?v=P9csgxBgaZ8)
+[Node's Event Loop From the Inside Out by Sam Roberts](https://www.youtube.com/watch?v=P9csgxBgaZ8)

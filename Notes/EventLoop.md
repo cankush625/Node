@@ -20,22 +20,22 @@ because the epoll (or any other polling mechanism) will never give an event if t
 # Can we poll for all system activity NodeJS wants to be notified of? Can everything be async?
 The answer can be Yes as well as No. There are three kinds of things:
 - Pollable File Descriptors: can be directly waited on
-    Pollable File descriptors are:
-        * Sockets (net/dgram/http/https/tls/child_process pipes/stdin/stdout/stderr)
-        * Time (timeouts and intervals)
-            &nbsp;&nbsp;&nbsp;&nbsp; timeout resolution is milliseconds, timespec is nanoseconds, but both are rounded up to system clock granularity.
-            &nbsp;&nbsp;&nbsp;&nbsp;Only one timeout at a time can be waited on, but NodeJS keeps all timeouts sorted, and sets the timeout value to the next one.
-        * DNS
-            DNS are sometimes pollable.
-            The system resolver for hostnames does not necessarily use DNS
-        * Signals
-            They are completely async. Uses the self-pipe pattern to write the signal number to the loop.
-        * Child processes
-            They does not use thread pool.
-            Unix signals child process termination with SIGCHLD
-            Pipes between the parent and child are pollable
-        * C++ addons
-            C++ addons are sometimes pollable.
+    Pollable File descriptors are:  
+        - Sockets (net/dgram/http/https/tls/child_process pipes/stdin/stdout/stderr)  
+        - Time (timeouts and intervals)  
+            &nbsp;&nbsp;&nbsp;&nbsp; timeout resolution is milliseconds, timespec is nanoseconds, but both are rounded up to system clock granularity.  
+            &nbsp;&nbsp;&nbsp;&nbsp;Only one timeout at a time can be waited on, but NodeJS keeps all timeouts sorted, and sets the timeout value to the next one.  
+        - DNS  
+            DNS are sometimes pollable.  
+            The system resolver for hostnames does not necessarily use DNS  
+        - Signals  
+            They are completely async. Uses the self-pipe pattern to write the signal number to the loop.  
+        - Child processes  
+            They does not use thread pool.  
+            Unix signals child process termination with SIGCHLD  
+            Pipes between the parent and child are pollable  
+        - C++ addons  
+            C++ addons are sometimes pollable.  
             Addons should use the UV thread pool or integrate with the loop, but not necessary it is done.
 - Time: next timeout can be directly waited on
 - Everything else: must happen off loop, and signal back to the loop when done

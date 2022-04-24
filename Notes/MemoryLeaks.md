@@ -133,5 +133,6 @@ Caveats:
 - mdb: Low level memory debugging
 
 ## Resources:  
-[Slides](https://goo.gl/Chdxow)
-[Understanding and Debugging Memory Leaks in Your Node.js Applications](https://www.youtube.com/watch?v=hliOMEQRqf8)
+[Slides](https://goo.gl/Chdxow)  
+[Understanding and Debugging Memory Leaks in Your Node.js Applications](https://www.youtube.com/watch?v=hliOMEQRqf8)  
+[Memory in DevTools](https://developer.chrome.com/docs/devtools/memory-problems/memory-101/)  
